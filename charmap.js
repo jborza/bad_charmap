@@ -30,6 +30,12 @@ function charmap_layout(vs) {
     charmap_grid_layout(charmap_grid_vs, charmap_grid_container);
     add_child(vs.container, charmap_grid_container);
 
+    let character_selector_container = create_container();
+    set_style_background(character_selector_container, "#505000");
+    let character_selector_vs = create_character_selector_viewstate();
+    character_selector_layout(vs, character_selector_container);
+    add_child(vs.container, character_selector_container);
+
     add_child(get_root(), vs.container);
 }
 

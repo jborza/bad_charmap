@@ -21,8 +21,7 @@ function create_option(font) {
 }
 
 function font_picker_layout(vs, root_container) {
-    let label = create_label();
-    set_text_content(label, "Font:");
+    let label = create_label_with_text("Font:");
     add_child(root_container, label);
 
     let picker = create_element("select");

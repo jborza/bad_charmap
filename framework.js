@@ -10,6 +10,16 @@ function create_label() {
     return create_element("span");
 }
 
+function create_label_with_text(text) {
+    let el = create_label();
+    set_text_content(el, text);
+    return el;
+}
+
+function create_input() {
+    return create_element("input");
+}
+
 function set_attribute(el, attr, val) {
     el.setAttribute(attr, val);
 }
