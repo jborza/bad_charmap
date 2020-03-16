@@ -10,3 +10,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-weight: 300;
 }
+
+.charmap_grid input[type=button] {
+    width: 27px;
+    height: 32px;
+}

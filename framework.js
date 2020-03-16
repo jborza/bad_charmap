@@ -77,6 +77,19 @@ function set_style_background(el, value) {
     el.style.background = value;
 }
 
+function set_style_wrap(el, value) {
+    el.style.display = "flex";
+    el.style.flexWrap = value;
+}
+
+function set_style_width(el, value) {
+    el.style.width = value;
+}
+
+function set_style_height(el, value) {
+    el.style.width = value;
+}
+
 function curry(fn, ...args) {
     return (..._arg) => {
         return fn(...args, ..._arg);
