@@ -8,6 +8,7 @@ function create_characters(max_characters) {
 function create_charmap_model() {
     const MAX_CHARACTERS = 255;
     return {
-        characters: create_characters(MAX_CHARACTERS)
+        characters: create_characters(MAX_CHARACTERS),
+        fonts: fonts
     };
 }

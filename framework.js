@@ -6,6 +6,10 @@ function create_container() {
     return create_element("div");
 }
 
+function create_label() {
+    return create_element("span");
+}
+
 function set_attribute(el, attr, val) {
     el.setAttribute(attr, val);
 }
