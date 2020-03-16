@@ -100,6 +100,11 @@ function set_style_height(el, value) {
     el.style.width = value;
 }
 
+function set_style_font_family(el, value) {
+    el.style.fontFamily = value;
+}
+
+
 function curry(fn, ...args) {
     return (..._arg) => {
         return fn(...args, ..._arg);

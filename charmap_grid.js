@@ -2,8 +2,15 @@ const SIGNAL_CHARACTER_CLICKED = "SIGNAL_CHARACTER_CLICKED";
 
 function create_charmap_grid_viewstate(characters) {
     return {
-        characters: characters
+        characters: characters,
+        container: undefined
     }
+}
+
+function on_font_changed(vs, parameters) {
+    console.log('on font changed', parameters);
+    let font = parameters;
+    set_style_font_family(vs.container, font);
 }
 
 function character_clicked_handler(vs, target) {
@@ -15,6 +22,7 @@ function character_clicked_handler(vs, target) {
 function charmap_grid_layout(vs, root_container) {
     let container = create_container();
     set_class(container, "charmap_grid");
+    set_style_font_family(container, "Courier");
     set_style_wrap(container, "wrap");
 
     for (const character of vs.characters) {
@@ -25,7 +33,11 @@ function charmap_grid_layout(vs, root_container) {
         add_child(container, button);
     }
 
-    add_child(root_container, container);
+    add_child(container, create_label_with_text("Change my text!"));
+    vs.container = container;
+    add_child(root_container, vs.container);
+
+    connect_signal(SIGNAL_FONT_CHANGED, on_font_changed, vs);
 }
 
 function charmap_grid_render(vs) {
