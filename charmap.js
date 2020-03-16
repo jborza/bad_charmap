@@ -7,6 +7,10 @@ function create_charmap_viewstate(model) {
     }
 }
 
+function on_font_changed(vs, parameters) {
+    console.log('on font changed', parameters);
+}
+
 function charmap_layout(vs) {
     vs.container = create_container();
     let title = create_element("h1");
@@ -18,6 +22,7 @@ function charmap_layout(vs) {
     let font_picker_vs = create_font_picker_viewstate(vs.model.fonts);
     font_picker_layout(font_picker_vs, font_picker_container);
     add_child(vs.container, font_picker_container);
+    connect_signal(SIGNAL_FONT_CHANGED, on_font_changed, vs);
 
     add_child(get_root(), vs.container);
 }
