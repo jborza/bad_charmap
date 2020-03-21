@@ -1,4 +1,4 @@
-fonts = ["Arial", "Times New Roman", "Courier New", "Comic Sans MS"];
+fonts = ["sans-serif", "serif", "monospace"];
 
 function create_basic_characters(max_characters) {
     const FIRST_CHARCODE = 33;

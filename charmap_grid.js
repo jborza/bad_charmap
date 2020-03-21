@@ -4,21 +4,23 @@ function create_charmap_grid_viewstate(characters, blocks) {
     return {
         characters: characters,
         container: undefined,
-        selected_block: blocks.find(b=>b.name === 'Basic Latin'),
-        blocks: blocks
+        selected_block: blocks.find(b => b.name === 'Basic Latin'),
+        blocks: blocks,
+        selected_font: 'sans-serif'
     }
 }
 
 function on_font_changed(vs, parameters) {
     console.log('on font changed', parameters);
     let font = parameters;
-    set_style_font_family(vs.container, font);
+    vs.selected_font = font;
+    charmap_grid_render(vs);
 }
 
 function on_block_changed(vs, parameters) {
     console.log('on block changed', parameters);
     let block = parameters;
-    vs.selected_block = vs.blocks.find(b=>b.name === block);
+    vs.selected_block = vs.blocks.find(b => b.name === block);
     charmap_grid_render(vs);
 }
 
@@ -34,7 +36,6 @@ function charmap_grid_layout(vs, root_container) {
     set_style_font_family(container, "Courier");
     set_style_wrap(container, "wrap");
 
-    add_child(container, create_label_with_text("Change my text!"));
     vs.container = container;
     add_child(root_container, vs.container);
 
@@ -51,6 +52,7 @@ function charmap_grid_render(vs) {
     for (const character of characters) {
         let button = create_element("input");
         set_attribute(button, "type", "button");
+        set_style_font_family(button, vs.selected_font);
         add_click_handler(button, character_clicked_handler, vs);
         set_value(button, character);
         add_child(vs.container, button);
