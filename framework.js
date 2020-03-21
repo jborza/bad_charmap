@@ -111,6 +111,9 @@ function set_style_font_family(el, value) {
     el.style.fontFamily = value;
 }
 
+function set_style_font_size(el, value){
+    el.style.fontSize = value;
+}
 
 function curry(fn, ...args) {
     return (..._arg) => {

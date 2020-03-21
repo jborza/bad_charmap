@@ -20,9 +20,10 @@ function character_selector_layout(vs, root_container) {
     add_child(container, selector_label);
 
     let value_container = create_container();
-    let value_label = create_label_with_text("Glyph:");
+    let value_label = create_label_with_text("Glyph:");    
     add_child(value_container, value_label);
-    vs.glyph_input = create_input();
+    vs.glyph_input = create_label();
+    set_style_font_size(vs.glyph_input, '36px');
     add_child(value_container, vs.glyph_input);
     add_child(container, value_container);
 
@@ -46,7 +47,7 @@ function hexcode(str) {
 
 function character_selector_render(vs) {
     //U+0123 + description
-    set_value(vs.glyph_input, vs.selected_character);
+    set_text_content(vs.glyph_input, vs.selected_character);
     let code = "U+" + hexcode(vs.selected_character)
     set_value(vs.code_input, code);
 }
