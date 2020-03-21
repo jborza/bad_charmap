@@ -11,14 +11,12 @@ function create_charmap_grid_viewstate(characters, blocks) {
 }
 
 function on_font_changed(vs, parameters) {
-    console.log('on font changed', parameters);
     let font = parameters;
     vs.selected_font = font;
     charmap_grid_render(vs);
 }
 
 function on_block_changed(vs, parameters) {
-    console.log('on block changed', parameters);
     let block = parameters;
     vs.selected_block = vs.blocks.find(b => b.name === block);
     charmap_grid_render(vs);

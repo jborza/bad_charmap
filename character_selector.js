@@ -9,21 +9,23 @@ function create_character_selector_viewstate() {
 }
 
 function on_character_clicked(vs, parameters) {
-    console.log("on_character_clicked", parameters);
     vs.selected_character = parameters;
     character_selector_render(vs);
 }
 
+function on_font_changed_selector(vs, parameters) {
+    let font = parameters;
+    set_style_font_family(vs.glyph_input, font);
+}
+
 function character_selector_layout(vs, root_container) {
     let container = create_container();
-    let selector_label = create_label_with_text("Selected character");
-    add_child(container, selector_label);
 
     let value_container = create_container();
-    let value_label = create_label_with_text("Glyph:");    
+    let value_label = create_label_with_text("Selected glyph:");    
     add_child(value_container, value_label);
     vs.glyph_input = create_label();
-    set_style_font_size(vs.glyph_input, '36px');
+    set_style_font_size(vs.glyph_input, '32px');
     add_child(value_container, vs.glyph_input);
     add_child(container, value_container);
 
@@ -39,6 +41,7 @@ function character_selector_layout(vs, root_container) {
     add_child(root_container, container);
 
     connect_signal(SIGNAL_CHARACTER_CLICKED, on_character_clicked, vs);
+    connect_signal(SIGNAL_FONT_CHANGED, on_font_changed_selector, vs);
 }
 
 function hexcode(str) {

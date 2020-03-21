@@ -129,12 +129,18 @@ signal_map = {};
 
 function raise_signal(signal, data) {
     console.log('Raised signal:', signal, " data:", data);
-    signal_map[signal](data);
+    if(!(signal in signal_map))
+        return;
+    for(const func of signal_map[signal]){
+        func(data);
+    }
 }
 
 function connect_signal(signal, handler, target_viewstate) {
     var wrapped_handler = curry(handler, target_viewstate);
-    signal_map[signal] = wrapped_handler;
+    if(!(signal in signal_map))
+        signal_map[signal] = [];
+    signal_map[signal].push(wrapped_handler);
 }
 
 function clear_children(el) {
