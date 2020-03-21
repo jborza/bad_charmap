@@ -20,6 +20,13 @@ function create_input() {
     return create_element("input");
 }
 
+function create_option(value) {
+    let option = create_element("option");
+    set_attribute(option, "value", value);
+    set_text_content(option, value);
+    return option;
+}
+
 function set_attribute(el, attr, val) {
     el.setAttribute(attr, val);
 }

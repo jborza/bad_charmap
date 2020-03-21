@@ -13,13 +13,6 @@ function font_picker_changed(vs, target) {
     raise_signal(SIGNAL_FONT_CHANGED, selected_font);
 }
 
-function create_option(font) {
-    let option = create_element("option");
-    set_attribute(option, "value", font);
-    set_text_content(option, font);
-    return option;
-}
-
 function font_picker_layout(vs, root_container) {
     let label = create_label_with_text("Font:");
     add_child(root_container, label);
@@ -28,7 +21,7 @@ function font_picker_layout(vs, root_container) {
     set_attribute(picker, "name", "font");
 
     //create options
-    for (font of vs.font_list)
+    for (const font of vs.font_list)
         add_child(picker, create_option(font));
 
     add_change_handler(picker, font_picker_changed, vs);

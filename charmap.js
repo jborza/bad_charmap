@@ -2,8 +2,7 @@ function create_charmap_viewstate(model) {
     return {
         model: model,
         container: undefined,
-
-
+        selected_block: undefined
     }
 }
 
@@ -19,9 +18,15 @@ function charmap_layout(vs) {
     font_picker_layout(font_picker_vs, font_picker_container);
     add_child(vs.container, font_picker_container);
 
+    let unicode_picker_container = create_container();
+    set_style_background(unicode_picker_container, "#004040");
+    let unicode_picker_vs = create_unicode_picker_viewstate(vs.model.blocks);
+    unicode_picker_layout(unicode_picker_vs, unicode_picker_container);
+    add_child(vs.container, unicode_picker_container);
+
     let charmap_grid_container = create_container();
     set_style_background(charmap_grid_container, "#400050");
-    let charmap_grid_vs = create_charmap_grid_viewstate(vs.model.characters);
+    let charmap_grid_vs = create_charmap_grid_viewstate(vs.model.characters, vs.model.blocks);
     charmap_grid_layout(charmap_grid_vs, charmap_grid_container);
     add_child(vs.container, charmap_grid_container);
 
@@ -35,5 +40,5 @@ function charmap_layout(vs) {
 }
 
 function charmap_render(vs) {
-
+    
 }
