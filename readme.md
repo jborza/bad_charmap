@@ -7,3 +7,5 @@ That means giving up on OOP-oriented API, using struct-like objects and global v
 TODO:
 - add libunistring and its unicode_character_name() function (ǚ: latin small letter u with diaraesis and caron)
 - add search functionality
+- add unicode block selector
+    - at least Basic Multilingual Plane https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane
