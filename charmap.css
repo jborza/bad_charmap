@@ -3,16 +3,16 @@ body {
     line-height: 1.4em;
     background: #161748;
     color: #ffffff;
-    min-width: 230px;
-    max-width: 380px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 300;
 }
 
 .charmap_entry {
-    width: 29px;
+    width: 32px;
     height: 34px;
     font-size: 16px;
 }
