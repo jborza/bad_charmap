@@ -24,8 +24,9 @@ function character_selector_layout(vs, root_container) {
     let value_container = create_container();
     let value_label = create_label_with_text("Selected glyph:");    
     add_child(value_container, value_label);
-    vs.glyph_input = create_label();
-    set_style_font_size(vs.glyph_input, '32px');
+    vs.glyph_input = create_container();
+    set_style(vs.glyph_input, "padding", "16px");
+    set_style_font_size(vs.glyph_input, '48px');
     add_child(value_container, vs.glyph_input);
     add_child(container, value_container);
 
@@ -45,7 +46,7 @@ function character_selector_layout(vs, root_container) {
 }
 
 function hexcode(str) {
-    return str.charCodeAt(0).toString(16).toUpperCase().padStart(4, '0');
+    return str.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
 }
 
 function character_selector_render(vs) {
