@@ -11,8 +11,12 @@ body {
     font-weight: 300;
 }
 
-.charmap_grid input[type=button] {
-    width: 27px;
-    height: 32px;
+.charmap_entry {
+    width: 29px;
+    height: 34px;
     font-size: 16px;
+}
+
+.charmap_grid input[type=button] {
+    font-family: inherit;
 }

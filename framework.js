@@ -115,6 +115,20 @@ function set_style_font_size(el, value){
     el.style.fontSize = value;
 }
 
+function get_rule(selector_name){
+    for (const rule of document.styleSheets[0].cssRules){
+        if(rule.selectorText == selector_name){
+            return rule;
+        }
+    }
+    return undefined;
+}
+
+function update_style(selector_name, style, value){
+    const css_rule = get_rule(".charmap_grid");
+    css_rule.style[style] = value;
+}
+
 function curry(fn, ...args) {
     return (..._arg) => {
         return fn(...args, ..._arg);

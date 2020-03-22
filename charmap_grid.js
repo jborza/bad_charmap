@@ -13,7 +13,7 @@ function create_charmap_grid_viewstate(characters, blocks) {
 function on_font_changed(vs, parameters) {
     let font = parameters;
     vs.selected_font = font;
-    charmap_grid_render(vs);
+    set_style_font_family(vs.container, font);
 }
 
 function on_block_changed(vs, parameters) {
@@ -31,7 +31,7 @@ function character_clicked_handler(vs, target) {
 function charmap_grid_layout(vs, root_container) {
     let container = create_container();
     set_class(container, "charmap_grid");
-    set_style_font_family(container, "Courier");
+    set_style_font_family(container, vs.selected_font);
     set_style_wrap(container, "wrap");
 
     vs.container = container;
@@ -50,7 +50,7 @@ function charmap_grid_render(vs) {
     for (const character of characters) {
         let button = create_element("input");
         set_attribute(button, "type", "button");
-        set_style_font_family(button, vs.selected_font);
+        set_class(button, "charmap_entry");
         add_click_handler(button, character_clicked_handler, vs);
         set_value(button, character);
         add_child(vs.container, button);
