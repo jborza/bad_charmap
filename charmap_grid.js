@@ -48,8 +48,7 @@ function charmap_grid_render(vs) {
     let [start, end] = vs.selected_block.range;
     let characters = create_characters(start, end);
     for (const character of characters) {
-        let button = create_element("input");
-        set_attribute(button, "type", "button");
+        let button = create_button();;
         set_class(button, "charmap_entry");
         add_click_handler(button, character_clicked_handler, vs);
         set_value(button, character);

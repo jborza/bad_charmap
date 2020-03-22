@@ -20,6 +20,12 @@ function create_input() {
     return create_element("input");
 }
 
+function create_button(){
+    let el = create_input();
+    set_attribute(el, "type", "button");
+    return el;
+}
+
 function create_option(value) {
     let option = create_element("option");
     set_attribute(option, "value", value);
@@ -80,6 +86,10 @@ function set_checkbox_checked(el, checked) {
 
 function get_checkbox_checked(el) {
     return el.checked;
+}
+
+function set_style(el,style,value){
+    el.style[style] = value;
 }
 
 function set_style_textdecoration(el, value) {

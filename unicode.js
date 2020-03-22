@@ -4,6 +4,8 @@ function create_unicode_blocks(){
         {'name':'Latin-1 Supplement','range':[0x0080,0x00FF]},
         {'name':'Latin Extended-A','range':[0x0100,0x017F]},
         {'name':'Latin Extended-B','range':[0x0180,0x024F]},
+        {'name':'Misc Symbols and Pictographs','range':[0x1F300,0x1F5FF]},
+        {'name':'Emoticons','range':[0x1F600,0x1F64F]},
         {'name':'IPA Extensions','range':[0x0250,0x02AF]},
         {'name':'Spacing Modifier Letters','range':[0x02B0,0x02FF]},
         {'name':'Combining Diacritical Marks','range':[0x0300,0x036F]},

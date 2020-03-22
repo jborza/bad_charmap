@@ -15,5 +15,5 @@ function create_charmap_model() {
 }
 
 function create_characters(start, end){
-    return [...Array(end - start).keys()].map(i => String.fromCharCode(i + start));
+    return [...Array(end - start).keys()].map(i => String.fromCodePoint(i + start));
 }
