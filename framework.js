@@ -135,7 +135,7 @@ function get_rule(selector_name){
 }
 
 function update_style(selector_name, style, value){
-    const css_rule = get_rule(".charmap_grid");
+    const css_rule = get_rule(selector_name);
     css_rule.style[style] = value;
 }
 
